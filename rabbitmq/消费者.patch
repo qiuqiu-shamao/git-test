@@ -1,0 +1,61 @@
+Index: src/main/java/com/itheima/rabbitmq/ConsumerApplication.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/main/java/com/itheima/rabbitmq/ConsumerApplication.java	(date 1567604625000)
++++ src/main/java/com/itheima/rabbitmq/ConsumerApplication.java	(date 1567670020724)
+@@ -1,13 +1,30 @@
+ package com.itheima.rabbitmq;
+ 
+-import org.springframework.boot.SpringApplication;
++import lombok.Data;
+ import org.springframework.boot.autoconfigure.SpringBootApplication;
+ 
++import java.time.LocalDate;
++import java.time.LocalDateTime;
++import java.time.LocalTime;
++
++@Data
+ @SpringBootApplication
+ public class ConsumerApplication {
+-
++    int q;
++    int w ;
++    LocalDateTime time;
+     public static void main(String[] args) {
+-        SpringApplication.run(ConsumerApplication.class,args);
++        //SpringApplication.run(ConsumerApplication.class,args);
++
++
++
++        ConsumerApplication consumerApplication = new ConsumerApplication();
++        consumerApplication.setQ(1);
++        consumerApplication.setW(1);
++        System.out.println(consumerApplication);
++        System.out.println(LocalDate.now()+"  "+LocalTime.now());
++        System.out.println(LocalDateTime.now()+"");
++
+     }
+ 
+ }
+Index: pom.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- pom.xml	(date 1567604625000)
++++ pom.xml	(date 1567669060887)
+@@ -20,6 +20,12 @@
+             <groupId>org.springframework.boot</groupId>
+             <artifactId>spring-boot-starter-amqp</artifactId>
+         </dependency>
++        <dependency>
++            <groupId>org.projectlombok</groupId>
++            <artifactId>lombok</artifactId>
++            <version>1.16.20</version>
++            <scope>provided</scope>
++        </dependency>
+     </dependencies>
+ 
+     
